@@ -2,7 +2,7 @@
 namespace App;
 require_once '/vendor/autoload.php';
 use Utils\Helpers;
-use Quotes;
+use Greeting;
 
 class BaseApp{
 
@@ -28,8 +28,9 @@ class BaseApp{
         $numbersGenerator = new Helpers\TriangleNumbers(15);
         $data["numbers"]= $numbersGenerator->getResult();
 
-        $quote = (new Quotes\Quotes())->getRandomQuote();
-        $data["quote"] =  $quote;
+        $quoter = new Greeting\Greeting("Mike");
+        $data["quote"]["body"] =  $quoter->getRandomQuote();
+        $data["quote"]["greeting"] =  $quoter->getGreeing();
 
         echo $this->template->render($data);
     }

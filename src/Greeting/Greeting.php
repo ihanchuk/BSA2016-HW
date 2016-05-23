@@ -1,7 +1,15 @@
 <?php
 
-namespace Quotes;
-class Quotes{
+namespace Greeting;
+class Greeting{
+
+    protected $name;
+
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+
     protected $quotesCollection = [
         0=>["author"=>"Черчель",
             "text"=>"Сегодняшним миром правят озабоченные политики, 
@@ -23,5 +31,9 @@ class Quotes{
         4=>["author"=>"Сенека","text" =>"Глупо строить планы на всю жизнь, 
         не будучи господином даже завтрашнего дня"]
     ];
+
+    public  function getGreeing(){
+        return "Hi {$this->name}. There is a new quote for you:".PHP_EOL;
+    }
     use \Utils\Traits\RandomQuote\RandomQuote;
 }

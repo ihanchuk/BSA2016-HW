@@ -42,6 +42,10 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
             font-weight:bold;
         }
 
+        .val{
+            color:dodgerblue;
+        }
+
     </style>
 </head>
 <body>
@@ -49,7 +53,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 <div class=\"container\">
     <h2>Dynamic Tabs</h2>
     <ul class=\"nav nav-tabs\">
-        <li class=\"active\"><a data-toggle=\"tab\" href=\"#home\">Home</a></li>
+        <li class=\"active\"><a data-toggle=\"tab\" href=\"#home\">Readme:</a></li>
         <li><a data-toggle=\"tab\" href=\"#menu1\">Рандомная цитата</a></li>
         <li><a data-toggle=\"tab\" href=\"#menu2\">Треугольные числа</a></li>
         <li><a data-toggle=\"tab\" href=\"#menu3\">Герои компании Marvell</a></li>
@@ -57,19 +61,53 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 
     <div class=\"tab-content\">
         <div id=\"home\" class=\"tab-pane fade in active\">
-            <h3>HOME</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h3>Readme: </h3>
+            <p>Раз уж по заданию мы все равно используем <code>Composer</code>, то я решил заодно добавить
+                и <code>Twig</code> для удобной обработки вывода.
+            </p>
+            <p>В задании я использую просстранства имен по <code>PSR-4</code></p>
+            <p>Есть 4 основных просстранства имен:</p>
+            <ol>
+                <li><code>App</code> - класс самого приложения с единственным методом <code>run()</code></li>
+                <li><code>Greeting</code> - класс приветствия.</li>
+                <li><code>Marvel</code> - это уже просстранства имен для супер героев.
+                    Содержит вложенные просстранства имен для героев с учетом города. <br>
+                    <code>Marvel\\Azgard\\Thor()</code>
+                </li>
+                <li>
+                    <code>Utils</code> - трейты и классы-хелперы для работы. Содержит хелпер-класс
+                    <code>TriangleNumbers</code> в котором есть 2 метода:
+                    <ul>
+                        <li>
+                            <code>getNumbers()</code> генератор треугольных чисел по заданному диапозону
+                        </li>
+                        <li>
+                            <code>getResult()</code> формирующий массив с результатом. Использует
+                            <code>getNumbers()</code> как генератор для цикла.
+                        </li>
+                    </ul>
+
+                    и 2 трейта для работы с героями и цитатами.
+                    <ul>
+                        <li><code>Utils\\Traits\\Marvel\\InfoTrait</code></li>
+                        <li><code>Utils\\Traits\\RandomQuote\\RandomQuote</code></li>
+                    </ul>
+                </li>
+            </ol>
         </div>
         <div id=\"menu1\" class=\"tab-pane fade\">
-            <h3>Рандомная цитата</h3>
+            <h2>";
+        // line 81
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["quote"]) ? $context["quote"] : null), "greeting", array()), "html", null, true);
+        echo "</h2>
             <blockquote>
                 <p>";
-        // line 48
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["quote"]) ? $context["quote"] : null), "text", array()), "html", null, true);
+        // line 83
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["quote"]) ? $context["quote"] : null), "body", array()), "text", array()), "html", null, true);
         echo "</p>
                 <h4>";
-        // line 49
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["quote"]) ? $context["quote"] : null), "author", array()), "html", null, true);
+        // line 84
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["quote"]) ? $context["quote"] : null), "body", array()), "author", array()), "html", null, true);
         echo "</h4>
             </blockquote>
         </div>
@@ -77,7 +115,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
             <h3>Треугольные числа</h3>
             <ul class=\"numbers\">
                 ";
-        // line 55
+        // line 90
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["numbers"]) ? $context["numbers"] : null));
         $context['loop'] = array(
@@ -94,7 +132,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["n"]) {
-            // line 56
+            // line 91
             echo "                    <li><b>[";
             echo twig_escape_filter($this->env, $this->getAttribute($context["loop"], "index", array()), "html", null, true);
             echo "] </b> => ";
@@ -113,12 +151,25 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['n'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 58
+        // line 93
         echo "            </ul>
         </div>
         <div id=\"menu3\" class=\"tab-pane fade\">
             <h3>Герои компании Marvell</h3>
-            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            <p>
+                Все герои живут мирно по своим неймэйам.Нэйсмпэйс врхнего уровня <span class=\"val\">Marvel</span>
+                Пример создания героя: <code>\$ironChel = new Marvel\\NY\\IronMan();</code>
+            </p>
+            <p>Все герои наследуются от класса <code>Marvel\\SuperHuman</code></p>
+            <p>
+                В свою очередь класс <code>SuperHuman</code> содержит трейт <code> \\Utils\\Traits\\Marvel\\InfoTrait</code> который отвечает за формирование
+                данных профиля героя и его приветствие.
+            </p>
+            <p>
+                Честно говоря, я не особо понял, зачем функция <code>whoami()</code> должна вызываться статически...
+                Это порождает много лишней статики...Ну да ладно. <br>
+                Пример сообщения с приветствием от героя: <code>\$theMessage = Marvel\\Ontario\\Batman::whoami();</code>
+            </p>
         </div>
     </div>
 </div>
@@ -140,7 +191,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 
     public function getDebugInfo()
     {
-        return array (  117 => 58,  98 => 56,  81 => 55,  72 => 49,  68 => 48,  19 => 1,);
+        return array (  155 => 93,  136 => 91,  119 => 90,  110 => 84,  106 => 83,  101 => 81,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -169,6 +220,10 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 /*             font-weight:bold;*/
 /*         }*/
 /* */
+/*         .val{*/
+/*             color:dodgerblue;*/
+/*         }*/
+/* */
 /*     </style>*/
 /* </head>*/
 /* <body>*/
@@ -176,7 +231,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 /* <div class="container">*/
 /*     <h2>Dynamic Tabs</h2>*/
 /*     <ul class="nav nav-tabs">*/
-/*         <li class="active"><a data-toggle="tab" href="#home">Home</a></li>*/
+/*         <li class="active"><a data-toggle="tab" href="#home">Readme:</a></li>*/
 /*         <li><a data-toggle="tab" href="#menu1">Рандомная цитата</a></li>*/
 /*         <li><a data-toggle="tab" href="#menu2">Треугольные числа</a></li>*/
 /*         <li><a data-toggle="tab" href="#menu3">Герои компании Marvell</a></li>*/
@@ -184,14 +239,45 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 /* */
 /*     <div class="tab-content">*/
 /*         <div id="home" class="tab-pane fade in active">*/
-/*             <h3>HOME</h3>*/
-/*             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>*/
+/*             <h3>Readme: </h3>*/
+/*             <p>Раз уж по заданию мы все равно используем <code>Composer</code>, то я решил заодно добавить*/
+/*                 и <code>Twig</code> для удобной обработки вывода.*/
+/*             </p>*/
+/*             <p>В задании я использую просстранства имен по <code>PSR-4</code></p>*/
+/*             <p>Есть 4 основных просстранства имен:</p>*/
+/*             <ol>*/
+/*                 <li><code>App</code> - класс самого приложения с единственным методом <code>run()</code></li>*/
+/*                 <li><code>Greeting</code> - класс приветствия.</li>*/
+/*                 <li><code>Marvel</code> - это уже просстранства имен для супер героев.*/
+/*                     Содержит вложенные просстранства имен для героев с учетом города. <br>*/
+/*                     <code>Marvel\Azgard\Thor()</code>*/
+/*                 </li>*/
+/*                 <li>*/
+/*                     <code>Utils</code> - трейты и классы-хелперы для работы. Содержит хелпер-класс*/
+/*                     <code>TriangleNumbers</code> в котором есть 2 метода:*/
+/*                     <ul>*/
+/*                         <li>*/
+/*                             <code>getNumbers()</code> генератор треугольных чисел по заданному диапозону*/
+/*                         </li>*/
+/*                         <li>*/
+/*                             <code>getResult()</code> формирующий массив с результатом. Использует*/
+/*                             <code>getNumbers()</code> как генератор для цикла.*/
+/*                         </li>*/
+/*                     </ul>*/
+/* */
+/*                     и 2 трейта для работы с героями и цитатами.*/
+/*                     <ul>*/
+/*                         <li><code>Utils\Traits\Marvel\InfoTrait</code></li>*/
+/*                         <li><code>Utils\Traits\RandomQuote\RandomQuote</code></li>*/
+/*                     </ul>*/
+/*                 </li>*/
+/*             </ol>*/
 /*         </div>*/
 /*         <div id="menu1" class="tab-pane fade">*/
-/*             <h3>Рандомная цитата</h3>*/
+/*             <h2>{{quote.greeting}}</h2>*/
 /*             <blockquote>*/
-/*                 <p>{{quote.text}}</p>*/
-/*                 <h4>{{quote.author}}</h4>*/
+/*                 <p>{{quote.body.text}}</p>*/
+/*                 <h4>{{quote.body.author}}</h4>*/
 /*             </blockquote>*/
 /*         </div>*/
 /*         <div id="menu2" class="tab-pane fade">*/
@@ -204,7 +290,20 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 /*         </div>*/
 /*         <div id="menu3" class="tab-pane fade">*/
 /*             <h3>Герои компании Marvell</h3>*/
-/*             <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>*/
+/*             <p>*/
+/*                 Все герои живут мирно по своим неймэйам.Нэйсмпэйс врхнего уровня <span class="val">Marvel</span>*/
+/*                 Пример создания героя: <code>$ironChel = new Marvel\NY\IronMan();</code>*/
+/*             </p>*/
+/*             <p>Все герои наследуются от класса <code>Marvel\SuperHuman</code></p>*/
+/*             <p>*/
+/*                 В свою очередь класс <code>SuperHuman</code> содержит трейт <code> \Utils\Traits\Marvel\InfoTrait</code> который отвечает за формирование*/
+/*                 данных профиля героя и его приветствие.*/
+/*             </p>*/
+/*             <p>*/
+/*                 Честно говоря, я не особо понял, зачем функция <code>whoami()</code> должна вызываться статически...*/
+/*                 Это порождает много лишней статики...Ну да ладно. <br>*/
+/*                 Пример сообщения с приветствием от героя: <code>$theMessage = Marvel\Ontario\Batman::whoami();</code>*/
+/*             </p>*/
 /*         </div>*/
 /*     </div>*/
 /* </div>*/

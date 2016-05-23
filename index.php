@@ -12,7 +12,6 @@ $beastChel = new Marvel\Jungle\Beast();
 
 $herMessage = Marvel\Ontario\Batman::whoami();
 
-$quoter = new \Quotes\Quotes();
 $app = new App\BaseApp();
 $app->run();
 

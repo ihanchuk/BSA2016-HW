@@ -3,7 +3,7 @@ namespace Marvel\London;
 use \Marvel\SuperHuman as Hero;
 
 /**
- * Class Wasp
+ * Class CaptainBritain
  * @package Marvel\London
  */
 class CaptainBritain extends Hero{
