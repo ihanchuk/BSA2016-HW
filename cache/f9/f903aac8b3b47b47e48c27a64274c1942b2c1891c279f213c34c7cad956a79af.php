@@ -36,6 +36,12 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
             background-color: aliceblue;
         }
 
+        blockquote h4{
+            margin-top:15px;
+            font-style:Italic;
+            font-weight:bold;
+        }
+
     </style>
 </head>
 <body>
@@ -57,14 +63,21 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
         <div id=\"menu1\" class=\"tab-pane fade\">
             <h3>Рандомная цитата</h3>
             <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <p>";
+        // line 48
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["quote"]) ? $context["quote"] : null), "text", array()), "html", null, true);
+        echo "</p>
+                <h4>";
+        // line 49
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["quote"]) ? $context["quote"] : null), "author", array()), "html", null, true);
+        echo "</h4>
             </blockquote>
         </div>
         <div id=\"menu2\" class=\"tab-pane fade\">
             <h3>Треугольные числа</h3>
             <ul class=\"numbers\">
                 ";
-        // line 48
+        // line 55
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["numbers"]) ? $context["numbers"] : null));
         $context['loop'] = array(
@@ -81,7 +94,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["n"]) {
-            // line 49
+            // line 56
             echo "                    <li><b>[";
             echo twig_escape_filter($this->env, $this->getAttribute($context["loop"], "index", array()), "html", null, true);
             echo "] </b> => ";
@@ -100,7 +113,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['n'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 51
+        // line 58
         echo "            </ul>
         </div>
         <div id=\"menu3\" class=\"tab-pane fade\">
@@ -127,7 +140,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 
     public function getDebugInfo()
     {
-        return array (  104 => 51,  85 => 49,  68 => 48,  19 => 1,);
+        return array (  117 => 58,  98 => 56,  81 => 55,  72 => 49,  68 => 48,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -148,6 +161,12 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 /*             width:120px;*/
 /*             height:60px;*/
 /*             background-color: aliceblue;*/
+/*         }*/
+/* */
+/*         blockquote h4{*/
+/*             margin-top:15px;*/
+/*             font-style:Italic;*/
+/*             font-weight:bold;*/
 /*         }*/
 /* */
 /*     </style>*/
@@ -171,7 +190,8 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 /*         <div id="menu1" class="tab-pane fade">*/
 /*             <h3>Рандомная цитата</h3>*/
 /*             <blockquote>*/
-/*                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>*/
+/*                 <p>{{quote.text}}</p>*/
+/*                 <h4>{{quote.author}}</h4>*/
 /*             </blockquote>*/
 /*         </div>*/
 /*         <div id="menu2" class="tab-pane fade">*/

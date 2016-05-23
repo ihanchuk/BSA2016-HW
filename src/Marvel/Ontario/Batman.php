@@ -11,7 +11,7 @@ class Batman extends Hero{
      * Batman constructor.
      */
         public function __construct(){
-            parent::__construct($heroeData=[
+            parent::setHeroInfo([
                 "city"=>"Super City",
                 "name"=>"Bruce Wayne",
                 "nickname"=>"Batman"

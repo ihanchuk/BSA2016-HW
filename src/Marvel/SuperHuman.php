@@ -4,19 +4,18 @@ namespace Marvel;
 
 class SuperHuman{
 
+    private static $profile = [];
     use \Utils\Traits\Marvel\InfoTrait;
-
-    private $profile = [];
 
     /**
      * SuperHuman constructor.
      * @param $hero
      */
-    public function __construct($hero)
+    public static function setHeroInfo($hero)
     {
-        $this->profile["city"] = $hero["city"];
-        $this->profile["nickname"] = $hero["nickname"];
-        $this->profile["name"] = $hero["name"];
+        self::$profile["city"] = $hero["city"];
+        self::$profile["nickname"] = $hero["nickname"];
+        self::$profile["name"] = $hero["name"];
     }
 
 }

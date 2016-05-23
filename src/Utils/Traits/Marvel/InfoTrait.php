@@ -5,7 +5,11 @@ trait InfoTrait{
      * 
      */
     public static function whoami(){
-        print "<h1> I am called</h1>";
+        $nickname = self::$profile["nickname"];
+        $city = self::$profile["city"];
+        $greeting = "I'am {$nickname} from {$city}";
+
+        return $greeting;
     }
 
 }

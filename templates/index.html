@@ -18,6 +18,12 @@
             background-color: aliceblue;
         }
 
+        blockquote h4{
+            margin-top:15px;
+            font-style:Italic;
+            font-weight:bold;
+        }
+
     </style>
 </head>
 <body>
@@ -39,7 +45,8 @@
         <div id="menu1" class="tab-pane fade">
             <h3>Рандомная цитата</h3>
             <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <p>{{quote.text}}</p>
+                <h4>{{quote.author}}</h4>
             </blockquote>
         </div>
         <div id="menu2" class="tab-pane fade">
