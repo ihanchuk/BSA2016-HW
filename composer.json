@@ -1,0 +1,16 @@
+{
+    "name": "marvel/marvel",
+    "description": "Homework #1",
+    "authors": [
+        {
+            "name": "Igor Khanchuk",
+            "email": "mfc2005@ukr.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"": "src/"}
+    },
+    "require": {
+        "twig/twig": "~1.0"
+    }
+}
