@@ -9,13 +9,19 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <style type="text/css">
 
-        .numbers li{
-            display:inline-block;
-            padding:5px;
-            margin:2px;
-            width:120px;
-            height:60px;
+        .numbers{
+            display:block;
+            margin-botto:20px;
+        }
+
+        .numbers li {
+            display: inline-block;
+            padding: 5px;
+            margin: 2px;
+            width: 120px;
             background-color: aliceblue;
+            line-height: 40px;
+            text-align: center;
         }
 
         blockquote h4{
@@ -33,7 +39,7 @@
 <body>
 
 <div class="container">
-    <h2>Dynamic Tabs</h2>
+    <h1 class="omework">Домашнее задание BSA 2016 #1 </h1>
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#home">Readme:</a></li>
         <li><a data-toggle="tab" href="#menu1">Рандомная цитата</a></li>
@@ -86,6 +92,20 @@
         </div>
         <div id="menu2" class="tab-pane fade">
             <h3>Треугольные числа</h3>
+
+            <p>
+                Треугольные числа генерятся классом <code>\Utils\Helpers\TriangleNumbers</code>
+            </p>
+            <p>
+                Класс  <code>\Utils\Helpers\TriangleNumbers</code> состоит всего из 2 методов:
+            <ul>
+                <li><code>TriangleNumbers->getNumbers()</code> который по сути всего лиь генератор</li>
+                <li><code>TriangleNumbers->getResult()</code> который используя генраторный метод формирует массив результатов.</li>
+            </ul>
+
+            </p>
+
+            <h4>stdout:</h4>
             <ul class="numbers">
                 {% for n in numbers %}
                     <li><b>[{{ loop.index}}] </b> => {{ n}}</li>
@@ -100,8 +120,8 @@
             </p>
             <p>Все герои наследуются от класса <code>Marvel\SuperHuman</code></p>
             <p>
-                В свою очередь класс <code>SuperHuman</code> содержит трейт <code> \Utils\Traits\Marvel\InfoTrait</code> который отвечает за формирование
-                данных профиля героя и его приветствие.
+                В свою очередь класс <code>SuperHuman</code> содержит трейт <code> \Utils\Traits\Marvel\InfoTrait</code> который отвечает
+                за привествие  героя.
             </p>
             <p>
                 Честно говоря, я не особо понял, зачем функция <code>whoami()</code> должна вызываться статически...

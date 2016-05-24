@@ -1,12 +1,6 @@
 <?php
 namespace Utils\Helpers;
 
-/**
- * Created by PhpStorm.
- * User: igor
- * Date: 23.05.2016
- * Time: 17:16
- */
 class TriangleNumbers
 {
     public function __construct($limit)

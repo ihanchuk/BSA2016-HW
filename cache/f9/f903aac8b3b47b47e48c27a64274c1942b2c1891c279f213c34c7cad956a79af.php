@@ -27,13 +27,19 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
     <script src=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>
     <style type=\"text/css\">
 
-        .numbers li{
-            display:inline-block;
-            padding:5px;
-            margin:2px;
-            width:120px;
-            height:60px;
+        .numbers{
+            display:block;
+            margin-botto:20px;
+        }
+
+        .numbers li {
+            display: inline-block;
+            padding: 5px;
+            margin: 2px;
+            width: 120px;
             background-color: aliceblue;
+            line-height: 40px;
+            text-align: center;
         }
 
         blockquote h4{
@@ -51,7 +57,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 <body>
 
 <div class=\"container\">
-    <h2>Dynamic Tabs</h2>
+    <h1 class=\"omework\">Домашнее задание BSA 2016 #1 </h1>
     <ul class=\"nav nav-tabs\">
         <li class=\"active\"><a data-toggle=\"tab\" href=\"#home\">Readme:</a></li>
         <li><a data-toggle=\"tab\" href=\"#menu1\">Рандомная цитата</a></li>
@@ -97,25 +103,39 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
         </div>
         <div id=\"menu1\" class=\"tab-pane fade\">
             <h2>";
-        // line 81
+        // line 87
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["quote"]) ? $context["quote"] : null), "greeting", array()), "html", null, true);
         echo "</h2>
             <blockquote>
                 <p>";
-        // line 83
+        // line 89
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["quote"]) ? $context["quote"] : null), "body", array()), "text", array()), "html", null, true);
         echo "</p>
                 <h4>";
-        // line 84
+        // line 90
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["quote"]) ? $context["quote"] : null), "body", array()), "author", array()), "html", null, true);
         echo "</h4>
             </blockquote>
         </div>
         <div id=\"menu2\" class=\"tab-pane fade\">
             <h3>Треугольные числа</h3>
+
+            <p>
+                Треугольные числа генерятся классом <code>\\Utils\\Helpers\\TriangleNumbers</code>
+            </p>
+            <p>
+                Класс  <code>\\Utils\\Helpers\\TriangleNumbers</code> состоит всего из 2 методов:
+            <ul>
+                <li><code>TriangleNumbers->getNumbers()</code> который по сути всего лиь генератор</li>
+                <li><code>TriangleNumbers->getResult()</code> который используя генраторный метод формирует массив результатов.</li>
+            </ul>
+
+            </p>
+
+            <h4>stdout:</h4>
             <ul class=\"numbers\">
                 ";
-        // line 90
+        // line 110
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["numbers"]) ? $context["numbers"] : null));
         $context['loop'] = array(
@@ -132,7 +152,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["n"]) {
-            // line 91
+            // line 111
             echo "                    <li><b>[";
             echo twig_escape_filter($this->env, $this->getAttribute($context["loop"], "index", array()), "html", null, true);
             echo "] </b> => ";
@@ -151,7 +171,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['n'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 93
+        // line 113
         echo "            </ul>
         </div>
         <div id=\"menu3\" class=\"tab-pane fade\">
@@ -162,8 +182,8 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
             </p>
             <p>Все герои наследуются от класса <code>Marvel\\SuperHuman</code></p>
             <p>
-                В свою очередь класс <code>SuperHuman</code> содержит трейт <code> \\Utils\\Traits\\Marvel\\InfoTrait</code> который отвечает за формирование
-                данных профиля героя и его приветствие.
+                В свою очередь класс <code>SuperHuman</code> содержит трейт <code> \\Utils\\Traits\\Marvel\\InfoTrait</code> который отвечает
+                за привествие  героя.
             </p>
             <p>
                 Честно говоря, я не особо понял, зачем функция <code>whoami()</code> должна вызываться статически...
@@ -191,7 +211,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 
     public function getDebugInfo()
     {
-        return array (  155 => 93,  136 => 91,  119 => 90,  110 => 84,  106 => 83,  101 => 81,  19 => 1,);
+        return array (  175 => 113,  156 => 111,  139 => 110,  116 => 90,  112 => 89,  107 => 87,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -205,13 +225,19 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 /*     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>*/
 /*     <style type="text/css">*/
 /* */
-/*         .numbers li{*/
-/*             display:inline-block;*/
-/*             padding:5px;*/
-/*             margin:2px;*/
-/*             width:120px;*/
-/*             height:60px;*/
+/*         .numbers{*/
+/*             display:block;*/
+/*             margin-botto:20px;*/
+/*         }*/
+/* */
+/*         .numbers li {*/
+/*             display: inline-block;*/
+/*             padding: 5px;*/
+/*             margin: 2px;*/
+/*             width: 120px;*/
 /*             background-color: aliceblue;*/
+/*             line-height: 40px;*/
+/*             text-align: center;*/
 /*         }*/
 /* */
 /*         blockquote h4{*/
@@ -229,7 +255,7 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 /* <body>*/
 /* */
 /* <div class="container">*/
-/*     <h2>Dynamic Tabs</h2>*/
+/*     <h1 class="omework">Домашнее задание BSA 2016 #1 </h1>*/
 /*     <ul class="nav nav-tabs">*/
 /*         <li class="active"><a data-toggle="tab" href="#home">Readme:</a></li>*/
 /*         <li><a data-toggle="tab" href="#menu1">Рандомная цитата</a></li>*/
@@ -282,6 +308,20 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 /*         </div>*/
 /*         <div id="menu2" class="tab-pane fade">*/
 /*             <h3>Треугольные числа</h3>*/
+/* */
+/*             <p>*/
+/*                 Треугольные числа генерятся классом <code>\Utils\Helpers\TriangleNumbers</code>*/
+/*             </p>*/
+/*             <p>*/
+/*                 Класс  <code>\Utils\Helpers\TriangleNumbers</code> состоит всего из 2 методов:*/
+/*             <ul>*/
+/*                 <li><code>TriangleNumbers->getNumbers()</code> который по сути всего лиь генератор</li>*/
+/*                 <li><code>TriangleNumbers->getResult()</code> который используя генраторный метод формирует массив результатов.</li>*/
+/*             </ul>*/
+/* */
+/*             </p>*/
+/* */
+/*             <h4>stdout:</h4>*/
 /*             <ul class="numbers">*/
 /*                 {% for n in numbers %}*/
 /*                     <li><b>[{{ loop.index}}] </b> => {{ n}}</li>*/
@@ -296,8 +336,8 @@ class __TwigTemplate_a5e575fe6eb425b294ea871c6cc0f994871c202e846d87e767942f1aa11
 /*             </p>*/
 /*             <p>Все герои наследуются от класса <code>Marvel\SuperHuman</code></p>*/
 /*             <p>*/
-/*                 В свою очередь класс <code>SuperHuman</code> содержит трейт <code> \Utils\Traits\Marvel\InfoTrait</code> который отвечает за формирование*/
-/*                 данных профиля героя и его приветствие.*/
+/*                 В свою очередь класс <code>SuperHuman</code> содержит трейт <code> \Utils\Traits\Marvel\InfoTrait</code> который отвечает*/
+/*                 за привествие  героя.*/
 /*             </p>*/
 /*             <p>*/
 /*                 Честно говоря, я не особо понял, зачем функция <code>whoami()</code> должна вызываться статически...*/
